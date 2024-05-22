@@ -1,16 +1,13 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
-import java.util.Scanner;
 
 /**
  * Project-4 - ProjectName : com-saucedemo
  * BaseUrl = https://www.saucedemo.com/
- * 1. Setup Chrome browser.
+ * 1. Setup chrome browser.
  * 2. Open URL.
  * 3. Print the title of the page.
  * 4. Print the current url.
@@ -24,29 +21,16 @@ import java.util.Scanner;
  * 12. Close the browser.
  */
 
-
-public class Programm_4_Saucedemo {
-    static String browser = "Chrome";
-    static String baseUrl = "https://www.saucedemo.com/";
-    static WebDriver driver;
+public class ChromeBrowser {
     public static void main(String[] args) {
-        //using Scanner Declaration
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Broswer name : ");
-        String browser = scanner.nextLine();
-        if (browser.equalsIgnoreCase("Chrome")) {
-            driver = new ChromeDriver();
-        }else if (browser.equalsIgnoreCase("Firefox")){
-            driver = new FirefoxDriver();
-        }else if (browser.equalsIgnoreCase("Edge")) {
-            driver = new EdgeDriver();
-        }else{
-            System.out.println("Wrong Browser name");
-        }
+        //Set up Chrome Browser
+        String baseUrl = "https://www.saucedemo.com/";
+        //Launch the Chrome Broswer
+        WebDriver driver = new ChromeDriver();
         //Open the Url
         driver.get(baseUrl);
         //We give Implicit wait to driver
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         //Print the title of the page.
         System.out.println("The title of the page : " + driver.getTitle());
         // Print the current url.
@@ -68,7 +52,7 @@ public class Programm_4_Saucedemo {
         //close the browser
         driver.quit();
 
-
-
     }
+
+
 }
